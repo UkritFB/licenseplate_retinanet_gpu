@@ -1,5 +1,8 @@
 FROM tensorflow/tensorflow:2.0.0-gpu-py3
 
+ADD . /app
+WORKDIR /app 
+
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN apt install -y libsm6 libxext6 libxrender-dev
