@@ -15,6 +15,6 @@ RUN git clone https://github.com/fizyr/keras-retinanet.git
 WORKDIR /app/keras-retinanet
 RUN  ls -lha 
 RUN pip install .
-# RUN  python setup.py build_ext
-# RUN cd ..
-# RUN rm -rf keras-retinanet
+RUN  python setup.py build_ext
+RUN /app
+RUN rm -rf keras-retinanet
