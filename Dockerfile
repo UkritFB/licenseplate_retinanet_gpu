@@ -5,17 +5,17 @@ WORKDIR /app
 
 RUN  apt-get update && \
           apt-get upgrade -y && \
-          apt-get install -y git
+          apt-get install -y git && \
+          apt install -y libsm6 libxext6 libxrender-dev
 
-RUN  pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN apt install -y libsm6 libxext6 libxrender-dev
+RUN  pip install --upgrade pip && \
+          pip install -r requirements.txt 
 
 RUN git clone https://github.com/fizyr/keras-retinanet.git
 WORKDIR /app/keras-retinanet 
-RUN  ls -lha 
-RUN pip install .
-RUN  python setup.py build_ext 
+RUN   pip install . && \
+          python setup.py build_ext 
+
 WORKDIR /app
-RUN  ls -lha 
-RUN rm -rf 
+RUN rm -rf keras-retinanet 
+
