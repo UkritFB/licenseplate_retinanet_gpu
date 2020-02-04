@@ -12,9 +12,9 @@ RUN pip install -r requirements.txt
 RUN apt install -y libsm6 libxext6 libxrender-dev
 
 RUN git clone https://github.com/fizyr/keras-retinanet.git
-RUN cd keras-retinanet
+WORKDIR /app/keras-retinanet
 RUN  ls -lha 
-RUN pip install .
-RUN  python setup.py build_ext
-RUN cd ..
-RUN rm -rf keras-retinanet
+# RUN pip install .
+# RUN  python setup.py build_ext
+# RUN cd ..
+# RUN rm -rf keras-retinanet
