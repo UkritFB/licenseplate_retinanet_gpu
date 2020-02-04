@@ -16,6 +16,6 @@ WORKDIR /app/keras-retinanet
 RUN  ls -lha 
 RUN pip install .
 RUN  python setup.py build_ext 
-RUN /app
+WORKDIR /app
 RUN  ls -lha 
 RUN rm -rf 
